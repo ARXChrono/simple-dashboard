@@ -25,12 +25,23 @@ interface IconLinkProps {
 }
 
 const IconLink = ({ link, icon, activeLink, index }: IconLinkProps) => {
+  const onClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
+    event.preventDefault();
+    window.history.pushState({}, "", link);
+
+    const navEvent = new PopStateEvent("popstate");
+    window.dispatchEvent(navEvent);
+  };
+
   return (
     <li
       key={`icon-${link}-${index}`}
       className={`${styles.listItem} ${activeLink === link && styles.active}`}
     >
-      <a href={link} className={`${styles.link}`}>
+      <a href={link} className={`${styles.link}`} onClick={onClick}>
         {icon === "home" && <HomeIcon />}
         {icon === "check" && <CheckIcon />}
       </a>
