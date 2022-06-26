@@ -1,17 +1,23 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import IconMenu from "./components/IconMenu";
 
-import { data } from "./data";
+import data from "./data";
 
 function App() {
+  const [activeLink, setActiveLink] = useState("");
+
+  useEffect(() => {
+    setActiveLink(window?.location?.pathname);
+  });
+
   return (
     <div className="dashboard">
       <Header title={data.title} />
       <div className="wrapper">
         <IconMenu
           menuLinks={data.sideMenu}
-          activeLink="home"
+          activeLink={activeLink}
           userLoggedIn={true}
         />
         <nav>links!</nav>

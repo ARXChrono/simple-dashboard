@@ -1,5 +1,4 @@
 .iconMenu {
-  padding: 0.5rem;
   background: var(--secondary-color);
 }
 
@@ -11,11 +10,30 @@
 }
 
 .link {
+  display: flex;
+  padding: 1.25rem;
   color: white;
+  transition: background 0.2s ease;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.icon {
-  padding: 1rem;
+.link svg {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+
+.link:hover,
+.link:focus {
+  background: var(--primary-color-lighten);
+}
+
+.listItem {
+  border-left: 2px solid transparent;
+}
+
+.active {
+  border-left: 2px solid white;
 }
 
 .pushDown {

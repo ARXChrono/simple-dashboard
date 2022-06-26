@@ -19,13 +19,17 @@ interface menuLinks {
 
 interface IconLinkProps {
   link: string;
+  activeLink: string;
   icon: ReactNode;
   index: number;
 }
 
-const IconLink = ({ link, icon, index }: IconLinkProps) => {
+const IconLink = ({ link, icon, activeLink, index }: IconLinkProps) => {
   return (
-    <li className={styles.icon} key={`icon-${link}-${index}`}>
+    <li
+      key={`icon-${link}-${index}`}
+      className={`${styles.listItem} ${activeLink === link && styles.active}`}
+    >
       <a href={link} className={`${styles.link}`}>
         {icon === "home" && <HomeIcon />}
         {icon === "check" && <CheckIcon />}
@@ -39,10 +43,10 @@ const IconMenu = ({ menuLinks, activeLink, userLoggedIn }: IconMenuProps) => {
     <aside className={styles.iconMenu}>
       <ul className={styles.menu}>
         {menuLinks.map(({ link, icon }, index) =>
-          IconLink({ link, icon, index })
+          IconLink({ link, icon, activeLink, index })
         )}
         {userLoggedIn && (
-          <li className={`${styles.icon} ${styles.pushDown}`}>
+          <li className={`${styles.pushDown}`}>
             <a href={`/logout`} className={`${styles.link}`}>
               <LogoutIcon />
             </a>

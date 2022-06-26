@@ -1,4 +1,4 @@
-export const data = {
+export default {
   title: "Header",
   sideMenu: [
     { link: "/", icon: "home" },

@@ -43,6 +43,7 @@ ul {
   --primary-color: #121212;
   --secondary-color: #212121;
   --tertiary-color: #909090;
+  --primary-color-lighten: #2e2e2e;
   --light-color: white;
   --heading-color: var(--primary-color);
   --text-color: var(--primary-color);
@@ -69,5 +70,5 @@ code {
 
 .wrapper {
   display: flex;
-  height: calc(100% - 75px);
+  height: calc(100% - 75px); /* Minus fixed top bar height */
 }
