@@ -11,16 +11,15 @@
 
 .link {
   display: flex;
-  padding: 1.25rem;
-  color: white;
+  padding: var(--space-lg);
+  color: var(--light-color);
   transition: background 0.2s ease;
-  border-radius: 4px;
   cursor: pointer;
 }
 
 .link svg {
-  height: 1.25rem;
-  width: 1.25rem;
+  height: var(--space-lg);
+  width: var(--space-lg);
 }
 
 .link:hover,
@@ -29,11 +28,11 @@
 }
 
 .listItem {
-  border-left: 2px solid transparent;
+  border-left: var(--space-xxxs) solid transparent;
 }
 
 .active {
-  border-left: 2px solid white;
+  border-left: var(--space-xxxs) solid var(--light-color);
 }
 
 .pushDown {

@@ -47,6 +47,15 @@ ul {
   --light-color: white;
   --heading-color: var(--primary-color);
   --text-color: var(--primary-color);
+  --space-xxxs: 2px;
+  --space-xxs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-xxl: 32px;
+  --space-xxxl: 48px;
 }
 
 body {
