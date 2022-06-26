@@ -1,22 +1,12 @@
-import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import IconMenu from "./components/IconMenu";
 import Route from "./components/Route";
+import useActiveRoute from "./hooks/useActiveRoute";
 
 import data from "./data";
 
 function App() {
-  const [activeLink, setActiveLink] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const onLocationChange = () => {
-      setActiveLink(window.location.pathname);
-    };
-    window.addEventListener("popstate", onLocationChange);
-    return () => {
-      window.removeEventListener("popstate", onLocationChange);
-    };
-  }, []);
+  const currentPath = useActiveRoute();
 
   return (
     <div className="dashboard">
@@ -24,17 +14,17 @@ function App() {
       <div className="wrapper">
         <IconMenu
           menuLinks={data.sideMenu}
-          activeLink={activeLink}
+          activeLink={currentPath}
           userLoggedIn={true}
         />
         <nav>links!</nav>
-        <Route path="/">
+        <Route path="/" currentPath={currentPath}>
           <main>LOREM!</main>
         </Route>
-        <Route path="/completed">
+        <Route path="/completed" currentPath={currentPath}>
           <main>Ba da bing ba da boom!</main>
         </Route>
-        <Route path="/logout">
+        <Route path="/logout" currentPath={currentPath}>
           <main>Wait, leaving so soon?</main>
         </Route>
       </div>
