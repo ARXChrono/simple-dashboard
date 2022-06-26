@@ -1,19 +1,22 @@
 import React from "react";
-import "./App.css";
-
 import Header from "./components/Header";
+import IconMenu from "./components/IconMenu";
+
+import { data } from "./data";
 
 function App() {
   return (
     <div className="dashboard">
-      <Header />
-      <aside>
-        <p>H</p>
-        <p>T</p>
-        <p>L</p>
-      </aside>
-      <nav>links!</nav>
-      <main>yuh, all that lorem</main>
+      <Header title={data.title} />
+      <div className="wrapper">
+        <IconMenu
+          menuLinks={data.sideMenu}
+          activeLink="home"
+          userLoggedIn={true}
+        />
+        <nav>links!</nav>
+        <main>yuh, all that lorem</main>
+      </div>
     </div>
   );
 }

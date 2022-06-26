@@ -2,6 +2,8 @@
 
 Simple Dashboard using Typescript, React and Vite only.
 
+[react-icons](https://react-icons.github.io/react-icons/) package used as 3rd party icon library
+
 View [Demo Link](https://simple-dashboard-demo-sw.netlify.app/)
 
 ## Getting Started

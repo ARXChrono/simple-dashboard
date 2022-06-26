@@ -1,0 +1,23 @@
+.iconMenu {
+  padding: 0.5rem;
+  background: var(--secondary-color);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  height: 100%;
+}
+
+.link {
+  color: white;
+}
+
+.icon {
+  padding: 1rem;
+}
+
+.pushDown {
+  margin-top: auto;
+}

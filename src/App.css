@@ -1,54 +1,16 @@
-:root {
-  --primary-color: #121212;
-  --secondary-color: #212121;
-  --tertiary-color: #909090;
-  --light-color: white;
-  --heading-color: var(--primary-color);
-  --text-color: var(--primary-color);
-}
-
 .dashboard {
-  display: grid;
+  display: block;
   height: 100vh;
-  grid-template-areas:
-    "head head head"
-    "aside nav main";
-  grid-template-columns:
-    auto
-    minmax(50px, 1fr)
-    minmax(150px, 6fr);
-  grid-template-rows:
-    auto
-    1fr;
+  width: 100%;
 }
 
-.dashboard header {
-  grid-area: head;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  color: white;
-  background: var(--secondary-color);
-}
-
-.dashboard aside {
-  grid-area: aside;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  color: white;
-  background: var(--secondary-color);
-}
-
-.dashboard nav {
-  grid-area: nav;
+nav {
   padding: 1rem;
   color: white;
   background: var(--primary-color);
 }
 
-.dashboard main {
-  grid-area: main;
+main {
   padding: 1rem;
   background: var(--light-color);
 }
