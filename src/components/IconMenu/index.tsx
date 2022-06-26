@@ -22,7 +22,7 @@ interface IconLinkProps {
   activeLink: string;
   userLoggedIn: boolean;
   icon: ReactNode;
-  index: number;
+  index?: number;
 }
 
 const IconLink = ({

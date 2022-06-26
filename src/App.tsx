@@ -1,41 +1,44 @@
-import Header from "./components/Header";
-import IconMenu from "./components/IconMenu";
-import Navigation from "./components/Navigation";
-import ContentBlock from "./components/ContentBlock";
-import Route from "./components/Route";
+import {
+  Header,
+  IconMenu,
+  Navigation,
+  ContentBlock,
+  Route,
+} from "./components";
 import useActiveRoute from "./hooks/useActiveRoute";
 import data from "./data";
 
 function App() {
   const currentPath = useActiveRoute();
+  const { title, sideMenu, navigation, content } = data;
 
   return (
     <div className="dashboard">
-      <Header title={data.title} />
+      <Header title={title} />
       <div className="wrapper">
         <IconMenu
-          menuLinks={data.sideMenu}
+          menuLinks={sideMenu}
           activeLink={currentPath}
           userLoggedIn={true}
         />
         <Route path="/" currentPath={currentPath}>
-          <Navigation menuLinks={data.navigation.home} />
+          <Navigation menuLinks={navigation.home} />
           <ContentBlock
-            heading={data.content.home.heading}
-            content={data.content.home.content}
+            heading={content.home.heading}
+            content={content.home.content}
           />
         </Route>
         <Route path="/completed" currentPath={currentPath}>
-          <Navigation menuLinks={data.navigation.completed} />
+          <Navigation menuLinks={navigation.completed} />
           <ContentBlock
-            heading={data.content.completed.heading}
-            content={data.content.completed.content}
+            heading={content.completed.heading}
+            content={content.completed.content}
           />
         </Route>
         <Route path="/logout" currentPath={currentPath}>
           <ContentBlock
-            heading={data.content.logout.heading}
-            content={data.content.logout.content}
+            heading={content.logout.heading}
+            content={content.logout.content}
           />
         </Route>
       </div>
