@@ -6,11 +6,17 @@ import Route from "./components/Route";
 import data from "./data";
 
 function App() {
-  const [activeLink, setActiveLink] = useState("");
+  const [activeLink, setActiveLink] = useState(window.location.pathname);
 
   useEffect(() => {
-    setActiveLink(window?.location?.pathname);
-  });
+    const onLocationChange = () => {
+      setActiveLink(window.location.pathname);
+    };
+    window.addEventListener("popstate", onLocationChange);
+    return () => {
+      window.removeEventListener("popstate", onLocationChange);
+    };
+  }, []);
 
   return (
     <div className="dashboard">

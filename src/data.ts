@@ -3,5 +3,6 @@ export default {
   sideMenu: [
     { link: "/", icon: "home" },
     { link: "/completed", icon: "check" },
+    { link: "/logout", icon: "logout" },
   ],
 };

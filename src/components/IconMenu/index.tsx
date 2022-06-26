@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import styles from "../IconMenu/styles.module.css";
 import {
   AiOutlineHome as HomeIcon,
@@ -20,11 +20,18 @@ interface menuLinks {
 interface IconLinkProps {
   link: string;
   activeLink: string;
+  userLoggedIn: boolean;
   icon: ReactNode;
   index: number;
 }
 
-const IconLink = ({ link, icon, activeLink, index }: IconLinkProps) => {
+const IconLink = ({
+  link,
+  icon,
+  activeLink,
+  userLoggedIn,
+  index,
+}: IconLinkProps) => {
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
     if (event.metaKey || event.ctrlKey) {
       return;
@@ -39,11 +46,16 @@ const IconLink = ({ link, icon, activeLink, index }: IconLinkProps) => {
   return (
     <li
       key={`icon-${link}-${index}`}
-      className={`${styles.listItem} ${activeLink === link && styles.active}`}
+      className={`
+      ${styles.listItem} 
+      ${activeLink === link && styles.active} 
+      ${userLoggedIn && icon === "logout" && styles.pushDown}
+      `}
     >
       <a href={link} className={`${styles.link}`} onClick={onClick}>
         {icon === "home" && <HomeIcon />}
         {icon === "check" && <CheckIcon />}
+        {icon === "logout" && <LogoutIcon />}
       </a>
     </li>
   );
@@ -54,14 +66,7 @@ const IconMenu = ({ menuLinks, activeLink, userLoggedIn }: IconMenuProps) => {
     <aside className={styles.iconMenu}>
       <ul className={styles.menu}>
         {menuLinks.map(({ link, icon }, index) =>
-          IconLink({ link, icon, activeLink, index })
-        )}
-        {userLoggedIn && (
-          <li className={`${styles.pushDown}`}>
-            <a href={`/logout`} className={`${styles.link}`}>
-              <LogoutIcon />
-            </a>
-          </li>
+          IconLink({ link, icon, activeLink, userLoggedIn, index })
         )}
       </ul>
     </aside>
