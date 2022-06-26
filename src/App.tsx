@@ -1,5 +1,6 @@
 import Header from "./components/Header";
 import IconMenu from "./components/IconMenu";
+import Navigation from "./components/Navigation";
 import Route from "./components/Route";
 import useActiveRoute from "./hooks/useActiveRoute";
 
@@ -17,11 +18,12 @@ function App() {
           activeLink={currentPath}
           userLoggedIn={true}
         />
-        <nav>links!</nav>
         <Route path="/" currentPath={currentPath}>
+          <Navigation menuLinks={data.navigation.home} />
           <main>LOREM!</main>
         </Route>
         <Route path="/completed" currentPath={currentPath}>
+          <Navigation menuLinks={data.navigation.completed} />
           <main>Ba da bing ba da boom!</main>
         </Route>
         <Route path="/logout" currentPath={currentPath}>

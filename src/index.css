@@ -40,13 +40,12 @@ ul {
 
 /* Global */
 :root {
-  --primary-color: #121212;
-  --secondary-color: #212121;
-  --tertiary-color: #909090;
-  --primary-color-lighten: #2e2e2e;
-  --light-color: white;
-  --heading-color: var(--primary-color);
-  --text-color: var(--primary-color);
+  /* Theme */
+  --color-primary: #121212;
+  --color-secondary: #212121;
+  --color-tertiary: #909090;
+  --color-primary-lighten: #2e2e2e;
+  --color-white: white;
   --space-xxxs: 2px;
   --space-xxs: 4px;
   --space-xs: 8px;
@@ -56,6 +55,19 @@ ul {
   --space-xl: 24px;
   --space-xxl: 32px;
   --space-xxxl: 48px;
+  /* Component Variable Settings */
+  --header-background-color: var(--color-secondary);
+  --header-text-color: var(--color-white);
+  --icon-menu-background-color: var(--color-secondary);
+  --icon-menu-link-active-color: var(--color-white);
+  --icon-menu-link-text-color: var(--color-white);
+  --icon-menu-link-bg-color-interact: var(--color-primary-lighten);
+  --navigation-background-color: var(--color-primary);
+  --navigation-text-color: var(--color-white);
+  --navigation-interact: #5a5a5a;
+  --navigation-width: 250px;
+  --heading-color: var(--color-primary);
+  --text-color: var(--color-primary);
 }
 
 body {

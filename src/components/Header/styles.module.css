@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   padding: var(--space-sm);
-  color: white;
+  color: var(--header-text-color);
   height: 75px; /* fixed height for top bar */
-  background: var(--secondary-color);
+  background: var(--header-background-color);
 }

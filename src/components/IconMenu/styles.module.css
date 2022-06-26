@@ -1,5 +1,5 @@
 .iconMenu {
-  background: var(--secondary-color);
+  background: var(--icon-menu-background-color);
 }
 
 .menu {
@@ -12,7 +12,7 @@
 .link {
   display: flex;
   padding: var(--space-lg);
-  color: var(--light-color);
+  color: var(--icon-menu-link-text-color);
   transition: background 0.2s ease;
   cursor: pointer;
 }
@@ -24,15 +24,16 @@
 
 .link:hover,
 .link:focus {
-  background: var(--primary-color-lighten);
+  background: var(--icon-menu-link-bg-color-interact);
 }
 
 .listItem {
   border-left: var(--space-xxxs) solid transparent;
+  border-right: var(--space-xxxs) solid transparent;
 }
 
 .active {
-  border-left: var(--space-xxxs) solid var(--light-color);
+  border-left: var(--space-xxxs) solid var(--icon-menu-link-active-color);
 }
 
 .pushDown {

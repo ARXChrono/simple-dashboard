@@ -1,4 +1,4 @@
-import { ReactNode, useState } from "react";
+import { ReactNode } from "react";
 import styles from "../IconMenu/styles.module.css";
 import {
   AiOutlineHome as HomeIcon,
