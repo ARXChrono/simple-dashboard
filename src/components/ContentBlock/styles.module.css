@@ -1,0 +1,9 @@
+.content {
+  padding: var(--space-xxl);
+}
+
+.heading {
+  font-weight: bold;
+  font-size: xx-large;
+  padding-bottom: var(--space-xl);
+}

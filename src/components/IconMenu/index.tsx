@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import styles from "../IconMenu/styles.module.css";
+import styles from "./styles.module.css";
 import {
   AiOutlineHome as HomeIcon,
   AiOutlineCheck as CheckIcon,

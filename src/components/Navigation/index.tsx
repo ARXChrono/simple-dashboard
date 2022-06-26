@@ -19,7 +19,7 @@ const ListItem = ({ link, label, type }: menuLinks) => {
     );
   }
   return (
-    <li className={styles.listItem}>
+    <li>
       <a href={link} className={styles.link}>
         {label}
       </a>
