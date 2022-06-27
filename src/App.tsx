@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import {
   Header,
   IconMenu,
@@ -12,6 +12,7 @@ import data from "./data";
 function App() {
   const currentPath = useCurrentPath();
   const { title, sideMenu, navigation, pages } = data;
+  const [activeIcon, setActiveIcon] = useState("home");
 
   const allPages = useMemo(() => {
     // make all sub pages
@@ -38,6 +39,8 @@ function App() {
         <IconMenu
           menuLinks={sideMenu}
           currentPath={currentPath}
+          activeIcon={activeIcon}
+          setActiveIcon={setActiveIcon}
           userLoggedIn={true}
         />
         {/* Create Pages */}

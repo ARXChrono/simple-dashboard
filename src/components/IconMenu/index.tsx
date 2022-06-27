@@ -9,6 +9,8 @@ interface IconMenuProps {
   menuLinks: menuLinks[];
   currentPath: string;
   userLoggedIn: boolean;
+  activeIcon: string;
+  setActiveIcon: React.Dispatch<React.SetStateAction<string>>;
 }
 
 interface menuLinks {
@@ -22,6 +24,8 @@ interface IconLinkProps {
   label: string;
   currentPath: string;
   userLoggedIn: boolean;
+  activeIcon: string;
+  setActiveIcon: React.Dispatch<React.SetStateAction<string>>;
   icon: string;
   index?: number;
 }
@@ -30,8 +34,9 @@ const IconLink = ({
   link,
   label,
   icon,
-  currentPath,
   userLoggedIn,
+  activeIcon,
+  setActiveIcon,
   index,
 }: IconLinkProps) => {
   const onClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -40,9 +45,9 @@ const IconLink = ({
     }
     event.preventDefault();
     window.history.pushState({}, "", link);
-
     const navEvent = new PopStateEvent("popstate");
     window.dispatchEvent(navEvent);
+    setActiveIcon(icon);
   };
 
   return (
@@ -50,7 +55,7 @@ const IconLink = ({
       key={`icon-${link}-${index}`}
       className={`
       ${styles.listItem} 
-      ${currentPath === link && styles.active} 
+      ${activeIcon === icon && styles.active} 
       ${userLoggedIn && icon === "logout" && styles.pushDown}
       `}
     >
@@ -68,12 +73,27 @@ const IconLink = ({
   );
 };
 
-const IconMenu = ({ menuLinks, currentPath, userLoggedIn }: IconMenuProps) => {
+const IconMenu = ({
+  menuLinks,
+  currentPath,
+  activeIcon,
+  setActiveIcon,
+  userLoggedIn,
+}: IconMenuProps) => {
   return (
     <aside className={styles.iconMenu}>
       <ul className={styles.menu}>
         {menuLinks.map(({ link, label, icon }, index) =>
-          IconLink({ link, label, icon, currentPath, userLoggedIn, index })
+          IconLink({
+            link,
+            label,
+            icon,
+            currentPath,
+            userLoggedIn,
+            activeIcon,
+            setActiveIcon,
+            index,
+          })
         )}
       </ul>
     </aside>
