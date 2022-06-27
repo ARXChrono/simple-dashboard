@@ -1,4 +1,5 @@
 export default {
+  // Global
   title: "Header",
   sideMenu: [
     { link: "/", icon: "home", label: "Home" },
@@ -7,26 +8,28 @@ export default {
   ],
   navigation: {
     home: [
-      { link: "#", label: "organization", type: "heading" },
-      { link: "#", label: "Org 1", type: "link" },
-      { link: "#", label: "Org 2", type: "link" },
-      { link: "#", label: "Org 3", type: "link" },
-      { link: "#", label: "Org 4", type: "link" },
-      { link: "#", label: "Org 5", type: "link" },
-      { link: "#", label: "settings", type: "heading" },
-      { link: "#", label: "Setting 1", type: "link" },
-      { link: "#", label: "Setting 2", type: "link" },
-      { link: "#", label: "Setting 3", type: "link" },
+      { link: "/organization", label: "organization", type: "heading" },
+      { link: "/organization/org-1", label: "Org 1", type: "link" },
+      { link: "/organization/org-2", label: "Org 2", type: "link" },
+      { link: "/organization/org-3", label: "Org 3", type: "link" },
+      { link: "/organization/org-4", label: "Org 4", type: "link" },
+      { link: "/organization/org-5", label: "Org 5", type: "link" },
+      { link: "/settings", label: "settings", type: "heading" },
+      { link: "/settings/setting-1", label: "Setting 1", type: "link" },
+      { link: "/settings/setting-2", label: "Setting 2", type: "link" },
+      { link: "/settings/setting-3", label: "Setting 3", type: "link" },
     ],
     completed: [
-      { link: "#", label: "VIP", type: "heading" },
-      { link: "#", label: "Org 1", type: "link" },
-      { link: "#", label: "Org 2", type: "link" },
+      { link: "/completed/vip", label: "VIP", type: "heading" },
+      { link: "/completed/vip/org-1", label: "Org 1", type: "link" },
+      { link: "/completed/vip/org-2", label: "Org 2", type: "link" },
     ],
   },
-  content: {
-    home: {
+  // Pages
+  pages: [
+    {
       heading: "Just a heading!",
+      path: "/",
       content: `
      <p> Bits of moving fluff with pretty stories for which there's little good evidence gathered by gravity another world Hypatia quasar. Hearts of the stars preserve and cherish that pale blue dot billions upon billions with pretty stories for which there's little good evidence two ghostly white figures in coveralls and helmets are softly dancing decipherment. Citizens of distant epochs stirred by starlight vanquish the impossible rich in heavy atoms star stuff harvesting star light take root and flourish?
 </p><br/>
@@ -37,8 +40,9 @@ Circumnavigated science inconspicuous motes of rock and gas rings of Uranus how 
 Star stuff harvesting star light another world cosmic ocean at the edge of forever shores of the cosmic ocean rogue. Inconspicuous motes of rock and gas as a patch of light not a sunrise but a galaxyrise a still more glorious dawn awaits the carbon in our apple pies how far away. From which we spring Cambrian explosion take root and flourish take root and flourish a mote of dust suspended in a sunbeam of brilliant syntheses and billions upon billions upon billions upon billions
  </p>     `,
     },
-    completed: {
+    {
       heading: "The Manifesto",
+      path: "/completed",
       content: `<p>Billions upon billions hearts of the stars kindling the energy hidden in matter science consectetur vel illum qui dolorem eum fugiat quo voluptas nulla pariatur. Emerged into consciousness a mote of dust suspended in a sunbeam Ut enim ad minima veniam permanence of the stars Ut enim ad minima veniam emerged into consciousness. Paroxysm of global death sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem nisi ut aliquid ex ea commodi consequatur Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium descended from astronomers Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
  </p>  <br/>
 <p>
@@ -53,9 +57,10 @@ Shores of the cosmic ocean network of wormholes tendrils of gossamer clouds rogu
 <p>
 Trillion consciousness citizens of distant epochs network of wormholes Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium finite but unbounded. Emerged into consciousness encyclopaedia galactica Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit nisi ut aliquid ex ea commodi consequatur a billion trillion vanquish the impossible. Made in the interiors of collapsing stars Ut enim ad minima veniam hundreds of thousands consectetur preserve and cherish that pale blue dot two ghostly white figures in coveralls and helmets are softly dancing and billions upon billions upon billions upon billions upon billions upon billions upon billions.</p>`,
     },
-    logout: {
+    {
       heading: "Wait, leaving so soon?",
+      path: "/logout",
       content: `<img src="https://media.giphy.com/media/Ty9Sg8oHghPWg/giphy.gif" alt="me sad"></img>`,
     },
-  },
+  ],
 };

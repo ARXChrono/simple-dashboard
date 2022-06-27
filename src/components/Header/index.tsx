@@ -1,6 +1,10 @@
 import styles from "./styles.module.css";
 
-const Header = ({ title }: { title?: string }) => {
+export interface title {
+  title?: string;
+}
+
+const Header = ({ title }: title) => {
   return <header className={styles.header}>{title || "Default"}</header>;
 };
 

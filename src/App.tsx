@@ -10,7 +10,7 @@ import data from "./data";
 
 function App() {
   const currentPath = useCurrentPath();
-  const { title, sideMenu, navigation, content } = data;
+  const { title, sideMenu, navigation, pages } = data;
 
   return (
     <div className="dashboard">
@@ -21,26 +21,44 @@ function App() {
           activeLink={currentPath}
           userLoggedIn={true}
         />
-        <Route path="/" currentPath={currentPath}>
-          <Navigation menuLinks={navigation.home} />
-          <ContentBlock
-            heading={content.home.heading}
-            content={content.home.content}
-          />
-        </Route>
-        <Route path="/completed" currentPath={currentPath}>
-          <Navigation menuLinks={navigation.completed} />
-          <ContentBlock
-            heading={content.completed.heading}
-            content={content.completed.content}
-          />
-        </Route>
-        <Route path="/logout" currentPath={currentPath}>
-          <ContentBlock
-            heading={content.logout.heading}
-            content={content.logout.content}
-          />
-        </Route>
+        {/* Create Pages */}
+        {pages?.map(({ path, heading, content }, index) => (
+          <Route
+            path={path}
+            currentPath={currentPath}
+            key={`${path}${heading}-${index}`}
+          >
+            <Navigation
+              menuLinks={
+                currentPath.includes("/completed")
+                  ? navigation.completed
+                  : navigation.home
+              }
+            />
+            <ContentBlock heading={heading} content={content} />
+          </Route>
+        ))}
+        {/* Create Sub Pages with their headings */}
+        {navigation.home?.map(({ link, label }, index) => (
+          <Route
+            path={link}
+            currentPath={currentPath}
+            key={`${link}${label}-${index}`}
+          >
+            <Navigation menuLinks={navigation.home} />
+            <ContentBlock heading={label} content={pages[0].content} />
+          </Route>
+        ))}
+        {navigation.completed?.map(({ link, label }, index) => (
+          <Route
+            path={link}
+            currentPath={currentPath}
+            key={`${link}${label}-${index}`}
+          >
+            <Navigation menuLinks={navigation.completed} />
+            <ContentBlock heading={label} content={pages[0].content} />
+          </Route>
+        ))}
       </div>
     </div>
   );
