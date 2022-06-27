@@ -8,6 +8,7 @@
   color: var(--navigation-text-color);
   text-transform: uppercase;
   font-size: medium;
+  font-weight: 700;
   padding: var(--space-md) var(--space-md) 0;
 }
 
