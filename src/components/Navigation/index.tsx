@@ -15,7 +15,7 @@ const ListItem = ({ link, label, type, index }: menuLinks) => {
   if (type === "heading") {
     return (
       <li key={`nav-heading-${index}`} data-key={`nav-heading-${index}`}>
-        <h3 className={styles.subheading}>{label}</h3>
+        <span className={styles.subheading}>{label}</span>
       </li>
     );
   }
@@ -31,7 +31,7 @@ const ListItem = ({ link, label, type, index }: menuLinks) => {
 const Navigation = ({ menuLinks }: navigationProps) => {
   return (
     <nav className={styles.nav}>
-      <h2 className={styles.heading}>Dashboard</h2>
+      <span className={styles.heading}>Dashboard</span>
       <ul className={styles.list}>
         {menuLinks.map((item, index) => ListItem({ ...item, index }))}
       </ul>
