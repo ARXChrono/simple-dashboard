@@ -12,6 +12,17 @@ interface navigationProps {
 }
 
 const ListItem = ({ link, label, type, index }: menuLinks) => {
+  const onClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
+    event.preventDefault();
+    window.history.pushState({}, "", link);
+
+    const navEvent = new PopStateEvent("popstate");
+    window.dispatchEvent(navEvent);
+  };
+
   if (type === "heading") {
     return (
       <li key={`nav-heading-${index}`} data-key={`nav-heading-${index}`}>
@@ -21,7 +32,7 @@ const ListItem = ({ link, label, type, index }: menuLinks) => {
   }
   return (
     <li key={`nav-link-${index}`} data-key={`nav-link-${index}`}>
-      <a href={link} className={styles.link}>
+      <a href={link} className={styles.link} onClick={onClick}>
         {label}
       </a>
     </li>
