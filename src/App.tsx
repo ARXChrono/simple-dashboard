@@ -5,11 +5,11 @@ import {
   ContentBlock,
   Route,
 } from "./components";
-import useActiveRoute from "./hooks/useActiveRoute";
+import useCurrentPath from "./hooks/useCurrentPath";
 import data from "./data";
 
 function App() {
-  const currentPath = useActiveRoute();
+  const currentPath = useCurrentPath();
   const { title, sideMenu, navigation, content } = data;
 
   return (

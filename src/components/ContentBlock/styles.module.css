@@ -1,9 +1,11 @@
 .content {
   padding: var(--space-xxl);
+  color: var(--text-color);
 }
 
 .heading {
   font-weight: bold;
   font-size: xx-large;
+  color: var(--heading-color);
   padding-bottom: var(--space-xl);
 }

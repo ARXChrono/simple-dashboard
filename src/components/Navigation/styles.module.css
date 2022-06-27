@@ -13,7 +13,7 @@
 .subheading {
   color: var(--navigation-text-color);
   text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 700;
   font-size: small;
   padding: var(--space-md) var(--space-md) var(--space-xxs);
 }
