@@ -38,7 +38,6 @@ function App() {
       <div className="wrapper">
         <IconMenu
           menuLinks={sideMenu}
-          currentPath={currentPath}
           activeIcon={activeIcon}
           setActiveIcon={setActiveIcon}
           userLoggedIn={true}

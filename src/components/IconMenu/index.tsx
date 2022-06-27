@@ -7,7 +7,6 @@ import {
 
 interface IconMenuProps {
   menuLinks: menuLinks[];
-  currentPath: string;
   userLoggedIn: boolean;
   activeIcon: string;
   setActiveIcon: React.Dispatch<React.SetStateAction<string>>;
@@ -22,7 +21,6 @@ interface menuLinks {
 interface IconLinkProps {
   link: string;
   label: string;
-  currentPath: string;
   userLoggedIn: boolean;
   activeIcon: string;
   setActiveIcon: React.Dispatch<React.SetStateAction<string>>;
@@ -75,7 +73,6 @@ const IconLink = ({
 
 const IconMenu = ({
   menuLinks,
-  currentPath,
   activeIcon,
   setActiveIcon,
   userLoggedIn,
@@ -88,7 +85,6 @@ const IconMenu = ({
             link,
             label,
             icon,
-            currentPath,
             userLoggedIn,
             activeIcon,
             setActiveIcon,
