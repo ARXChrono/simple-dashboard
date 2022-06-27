@@ -27,8 +27,6 @@ function App() {
     }));
     // make pages
     let pagesArray = [...pages, ...PrimarySubLinks, ...SecondarySubLinks];
-    console.log(pagesArray);
-
     return pagesArray;
   }, [data]);
 
