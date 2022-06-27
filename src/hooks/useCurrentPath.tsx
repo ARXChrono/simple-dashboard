@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 export default () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentPath, setCurrentPath] = useState<string>(
+    window.location.pathname
+  );
 
   useEffect(() => {
     const onLocationChange = () => {

@@ -7,7 +7,7 @@ import {
 
 interface IconMenuProps {
   menuLinks: menuLinks[];
-  activeLink: string;
+  currentPath: string;
   userLoggedIn: boolean;
 }
 
@@ -20,7 +20,7 @@ interface menuLinks {
 interface IconLinkProps {
   link: string;
   label: string;
-  activeLink: string;
+  currentPath: string;
   userLoggedIn: boolean;
   icon: string;
   index?: number;
@@ -30,7 +30,7 @@ const IconLink = ({
   link,
   label,
   icon,
-  activeLink,
+  currentPath,
   userLoggedIn,
   index,
 }: IconLinkProps) => {
@@ -50,7 +50,7 @@ const IconLink = ({
       key={`icon-${link}-${index}`}
       className={`
       ${styles.listItem} 
-      ${activeLink === link && styles.active} 
+      ${currentPath === link && styles.active} 
       ${userLoggedIn && icon === "logout" && styles.pushDown}
       `}
     >
@@ -68,12 +68,12 @@ const IconLink = ({
   );
 };
 
-const IconMenu = ({ menuLinks, activeLink, userLoggedIn }: IconMenuProps) => {
+const IconMenu = ({ menuLinks, currentPath, userLoggedIn }: IconMenuProps) => {
   return (
     <aside className={styles.iconMenu}>
       <ul className={styles.menu}>
         {menuLinks.map(({ link, label, icon }, index) =>
-          IconLink({ link, label, icon, activeLink, userLoggedIn, index })
+          IconLink({ link, label, icon, currentPath, userLoggedIn, index })
         )}
       </ul>
     </aside>

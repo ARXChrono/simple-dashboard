@@ -34,6 +34,10 @@
   transition: background-color 0.2s ease;
 }
 
+.link.active {
+  font-weight: bold;
+}
+
 .link:hover,
 .link:focus {
   background-color: var(--navigation-interact);

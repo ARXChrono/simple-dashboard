@@ -37,7 +37,7 @@ function App() {
       <div className="wrapper">
         <IconMenu
           menuLinks={sideMenu}
-          activeLink={currentPath}
+          currentPath={currentPath}
           userLoggedIn={true}
         />
         {/* Create Pages */}
@@ -53,6 +53,7 @@ function App() {
                   ? navigation.completed
                   : navigation.home
               }
+              currentPath={currentPath}
             />
             <ContentBlock heading={heading} content={content} />
           </Route>
