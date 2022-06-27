@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   Header,
   IconMenu,
@@ -12,6 +13,25 @@ function App() {
   const currentPath = useCurrentPath();
   const { title, sideMenu, navigation, pages } = data;
 
+  const allPages = useMemo(() => {
+    // make all sub pages
+    const PrimarySubLinks = navigation.home?.map(({ link, label }) => ({
+      heading: label,
+      path: link,
+      content: pages[0].content,
+    }));
+    const SecondarySubLinks = navigation.completed?.map(({ link, label }) => ({
+      heading: label,
+      path: link,
+      content: pages[0].content,
+    }));
+    // make pages
+    let pagesArray = [...pages, ...PrimarySubLinks, ...SecondarySubLinks];
+    console.log(pagesArray);
+
+    return pagesArray;
+  }, [data]);
+
   return (
     <div className="dashboard">
       <Header title={title} />
@@ -22,7 +42,7 @@ function App() {
           userLoggedIn={true}
         />
         {/* Create Pages */}
-        {pages?.map(({ path, heading, content }, index) => (
+        {allPages?.map(({ path, heading, content }, index) => (
           <Route
             path={path}
             currentPath={currentPath}
@@ -36,27 +56,6 @@ function App() {
               }
             />
             <ContentBlock heading={heading} content={content} />
-          </Route>
-        ))}
-        {/* Create Sub Pages with their headings */}
-        {navigation.home?.map(({ link, label }, index) => (
-          <Route
-            path={link}
-            currentPath={currentPath}
-            key={`${link}${label}-${index}`}
-          >
-            <Navigation menuLinks={navigation.home} />
-            <ContentBlock heading={label} content={pages[0].content} />
-          </Route>
-        ))}
-        {navigation.completed?.map(({ link, label }, index) => (
-          <Route
-            path={link}
-            currentPath={currentPath}
-            key={`${link}${label}-${index}`}
-          >
-            <Navigation menuLinks={navigation.completed} />
-            <ContentBlock heading={label} content={pages[0].content} />
           </Route>
         ))}
       </div>
