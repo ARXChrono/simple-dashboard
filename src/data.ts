@@ -1,9 +1,9 @@
 export default {
   title: "Header",
   sideMenu: [
-    { link: "/", icon: "home" },
-    { link: "/completed", icon: "check" },
-    { link: "/logout", icon: "logout" },
+    { link: "/", icon: "home", label: "Home" },
+    { link: "/completed", icon: "check", label: "Completed" },
+    { link: "/logout", icon: "logout", label: "Logout" },
   ],
   navigation: {
     home: [

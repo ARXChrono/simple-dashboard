@@ -1,4 +1,3 @@
-import { ReactNode } from "react";
 import styles from "./styles.module.css";
 import {
   AiOutlineHome as HomeIcon,
@@ -14,19 +13,22 @@ interface IconMenuProps {
 
 interface menuLinks {
   link: string;
+  label: string;
   icon: string;
 }
 
 interface IconLinkProps {
   link: string;
+  label: string;
   activeLink: string;
   userLoggedIn: boolean;
-  icon: ReactNode;
+  icon: string;
   index?: number;
 }
 
 const IconLink = ({
   link,
+  label,
   icon,
   activeLink,
   userLoggedIn,
@@ -52,7 +54,12 @@ const IconLink = ({
       ${userLoggedIn && icon === "logout" && styles.pushDown}
       `}
     >
-      <a href={link} className={`${styles.link}`} onClick={onClick}>
+      <a
+        href={link}
+        className={`${styles.link}`}
+        onClick={onClick}
+        aria-label={label}
+      >
         {icon === "home" && <HomeIcon />}
         {icon === "check" && <CheckIcon />}
         {icon === "logout" && <LogoutIcon />}
@@ -65,8 +72,8 @@ const IconMenu = ({ menuLinks, activeLink, userLoggedIn }: IconMenuProps) => {
   return (
     <aside className={styles.iconMenu}>
       <ul className={styles.menu}>
-        {menuLinks.map(({ link, icon }, index) =>
-          IconLink({ link, icon, activeLink, userLoggedIn, index })
+        {menuLinks.map(({ link, label, icon }, index) =>
+          IconLink({ link, label, icon, activeLink, userLoggedIn, index })
         )}
       </ul>
     </aside>
