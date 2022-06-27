@@ -15,18 +15,19 @@ function App() {
 
   const allPages = useMemo(() => {
     // make all sub pages
-    const PrimarySubLinks = navigation.home?.map(({ link, label }) => ({
+    const primarySubLinks = navigation.home?.map(({ link, label }) => ({
       heading: label,
       path: link,
       content: pages[0].content,
     }));
-    const SecondarySubLinks = navigation.completed?.map(({ link, label }) => ({
+    const secondarySubLinks = navigation.completed?.map(({ link, label }) => ({
       heading: label,
       path: link,
       content: pages[0].content,
     }));
-    // make pages
-    let pagesArray = [...pages, ...PrimarySubLinks, ...SecondarySubLinks];
+
+    // make all pages
+    const pagesArray = [...pages, ...primarySubLinks, ...secondarySubLinks];
     return pagesArray;
   }, [data]);
 
