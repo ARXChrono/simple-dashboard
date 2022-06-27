@@ -20,11 +20,18 @@
 .link svg {
   height: var(--space-lg);
   width: var(--space-lg);
+  color: var(--icon-menu-link-color);
+  transition: color 0.2s ease;
 }
 
 .link:hover,
 .link:focus {
   background: var(--icon-menu-link-bg-color-interact);
+}
+
+.link:hover svg,
+.link:focus svg {
+  color: var(--icon-menu-link-active-color);
 }
 
 .listItem {
@@ -34,6 +41,10 @@
 
 .active {
   border-left: var(--space-xxxs) solid var(--icon-menu-link-active-color);
+}
+
+.active svg {
+  color: var(--icon-menu-link-active-color);
 }
 
 .pushDown {

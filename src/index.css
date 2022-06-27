@@ -46,6 +46,7 @@ ul {
   --color-tertiary: #909090;
   --color-primary-lighten: #2e2e2e;
   --color-gray: #5a5a5a;
+  --color-gray-lighten: #909090;
   --color-white: white;
   --space-xxxs: 2px;
   --space-xxs: 4px;
@@ -60,6 +61,7 @@ ul {
   --header-background-color: var(--color-secondary);
   --header-text-color: var(--color-white);
   --icon-menu-background-color: var(--color-secondary);
+  --icon-menu-link-color: var(--color-gray-lighten);
   --icon-menu-link-active-color: var(--color-white);
   --icon-menu-link-text-color: var(--color-white);
   --icon-menu-link-bg-color-interact: var(--color-primary-lighten);
