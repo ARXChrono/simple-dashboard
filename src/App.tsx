@@ -15,7 +15,7 @@ function App() {
   const [activeIcon, setActiveIcon] = useState("home");
 
   const allPages = useMemo(() => {
-    // make all sub pages
+    // sub pages would normally come from pages
     const subPages = Object.values(navigation)
       .flat()
       .map(({ link, label }) => ({
@@ -23,10 +23,7 @@ function App() {
         path: link,
         content: pages[0].content,
       }));
-
-    // make all pages
-    const pagesArray = [...pages, ...subPages];
-    return pagesArray;
+    return [...pages, ...subPages];
   }, [data]);
 
   return (
