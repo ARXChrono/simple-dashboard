@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import useCurrentPath from "./hooks/useCurrentPath";
 import {
   Header,
   IconMenu,
@@ -6,13 +7,12 @@ import {
   ContentBlock,
   Route,
 } from "./components";
-import useCurrentPath from "./hooks/useCurrentPath";
 import data from "./data";
 
 function App() {
   const currentPath = useCurrentPath();
-  const { title, sideMenu, navigation, pages } = data;
   const [activeIcon, setActiveIcon] = useState("home");
+  const { title, sideMenu, navigation, pages } = data;
 
   const allPages = useMemo(() => {
     // sub pages would normally come from pages
