@@ -1,6 +1,7 @@
 .header {
   display: flex;
   align-items: center;
+  width: 100%;
   padding: var(--space-sm);
   color: var(--header-text-color);
   height: 75px; /* fixed height for top bar */
