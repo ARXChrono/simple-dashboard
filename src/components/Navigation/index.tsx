@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 interface menuLinks {
   label: string;
   link: string;
-  type: string;
+  type: "link" | "heading";
   index?: number;
   currentPath?: string;
 }
